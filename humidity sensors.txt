@@ -1,0 +1,50 @@
+/*This sketch changes the color of the led based on the temperature
+this code is made to work with DHT11 sensor
+the TMP sensor is only a place holder for the Dht sensor 
+*/ 
+
+#define DHTPIN 7
+
+
+int ledR=11;
+int ledG=9;
+int ledB=10;
+int map1;
+int map2;
+int map3;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledR,OUTPUT);
+  pinMode(ledG,OUTPUT);
+  pinMode(ledB,OUTPUT);
+}
+
+void loop() {
+  float humidity,temperature;
+
+  Serial.print("Humidity: ");
+  Serial.print(humidity);
+  Serial.print(" %");
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+  if(humidity>0 && humidity<=20){
+    analogWrite (ledR,100);
+    analogWrite (ledG,0);
+    analogWrite (ledB,0);
+  }
+  
+  if(humidity>20 && humidity<=30){
+    analogWrite (ledR,0);
+    analogWrite (ledG,100);
+    analogWrite (ledB,0);
+  }
+  
+  if(humidity>30 && humidity<=40){
+    analogWrite (ledR,0);
+    analogWrite (ledG,0);
+    analogWrite (ledB,100);
+  }
+}

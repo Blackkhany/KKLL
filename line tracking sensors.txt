@@ -1,0 +1,105 @@
+void setup() {
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(6, INPUT);
+  pinMode(5, INPUT);
+  pinMode(4, INPUT);
+  pinMode(3, INPUT);
+  pinMode(2, INPUT);
+}
+
+void loop() {
+  if (digitalRead(6) == 1 && digitalRead(5) == 1 && digitalRead(4) == 1 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    forward();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 1 && digitalRead(4) == 1 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    backward();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    left_f();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    left();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    right_s();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    right_f();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    right();
+  } else if (digitalRead(6) == 1 && digitalRead(5) == 0 && digitalRead(4) == 0 && digitalRead(3) == 1 && digitalRead(2) == 1) {
+    stop();
+  }
+}
+
+void forward() {
+  digitalWrite(13, HIGH);
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 80);
+  analogWrite(10, 80);
+}
+
+void backward() {
+  digitalWrite(13, LOW);
+  digitalWrite(12, HIGH);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 60);
+  analogWrite(10, 60);
+}
+
+void left_f() {
+  digitalWrite(13, LOW);
+  digitalWrite(12, HIGH);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 60);
+  analogWrite(10, 60);
+}
+
+void left() {
+  digitalWrite(13, HIGH);
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 70);
+  analogWrite(10, 50);
+}
+
+void right_s() {
+  digitalWrite(13, HIGH);
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 60);
+  analogWrite(10, 70);
+}
+
+void right_f() {
+  digitalWrite(13, HIGH);
+  digitalWrite(12, LOW);
+  digitalWrite(9, HIGH);
+  digitalWrite(8, LOW);
+  analogWrite(11, 60);
+  analogWrite(10, 60);
+}
+
+void right() {
+  digitalWrite(13, HIGH);
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(8, HIGH);
+  analogWrite(11, 50);
+  analogWrite(10, 70);
+}
+
+void stop() {
+  digitalWrite(13, LOW);
+  digitalWrite(12, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(8, LOW);
+  analogWrite(11, 0);
+  analogWrite(10, 0);
+}
